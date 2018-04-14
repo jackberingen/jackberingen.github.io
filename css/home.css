@@ -1,0 +1,15 @@
+#main{
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center;
+}
+
+#main h1{
+    font-family: HelveticaNeue;
+    font-size: 75px;
+    float: left;
+    color: white;
+    padding: 4px;
+}
