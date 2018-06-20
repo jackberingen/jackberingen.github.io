@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "http://jackberingen.github.io/",
   "dependencies": {
+    "@pixi/filter-ascii": "^2.5.0",
+    "@pixi/filter-crt": "^2.6.0",
+    "@pixi/filter-pixelate": "^2.5.0",
     "pixi.js": "^4.8.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

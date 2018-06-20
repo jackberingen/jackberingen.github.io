@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Backdrop from './Backdrop';
-import './App.css';
+import PixiApp from './PixiApp';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Backdrop />
+        <PixiApp />
       </div>
     );
   }

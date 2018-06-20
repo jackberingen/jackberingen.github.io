@@ -15,6 +15,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/src/components/pixi/resources/back
 
 npm-debug.log*
 yarn-debug.log*
