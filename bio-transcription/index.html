@@ -25,46 +25,26 @@
             }
         </style>
         <script>
-            var scribe = {
-                'A': 'U',
-                'T': 'A',
-                'G': 'C',
-                'C': 'G'
-            };
-
-            var seq = '';
-            var reset = ()=>{
-                seq = '';
-                for(var i = 0; i < 3; i++){
-                    var letters = ['A', 'T', 'G', 'C'];
-                    seq += letters[Math.floor(Math.random() * 4)];
+            var scribe = function(letter){
+                var _letter = letter.toUpperCase();
+                switch (_letter){
+                  case ' ': return ' '; break;
+                  case 'A': return 'U'; break;
+                  case 'U': return 'A'; break;
+                  case 'T': return 'A'; break;
+                  case 'G': return 'C'; break;
+                  case 'C': return 'G'; break;
+                  default: return '?'; break;
                 }
-                $("#answer").val('');
-                $("#base").text(seq);
             };
-
-            reset();
 
             $("#answer").on('keyup', function (e) {
-                if (e.keyCode == 13) {
-                    if($("#answer").val().length == 3){
-                        var success = true;
-                        for(var j = 0; j < 3; j++){
-                            if($("#answer").val()[j] != scribe[seq[j]]){
-                                success = false;
-                                break;
-                            }
-                        }
-                        if(success){
-                            M.toast({html: 'yay'});
-                            reset();
-                        }else{
-                            M.toast({html: 'try again'});
-                        }
-                    }else{
-                        M.toast({html: 'try again'});
-                    }
-                }
+              setTimeout(()=>{
+                $("#base").text('');
+                 for(var i = 0; i < $("#answer").val().length; i++){
+                   $("#base").append(scribe($("#answer").val()[i]));
+                 }
+              }, 1)
             });
         </script>
     </body>
