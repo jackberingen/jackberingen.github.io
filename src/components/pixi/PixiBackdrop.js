@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Sprite } from "react-pixi-fiber";
 import background from "./resources/backdrop2.png";
-import BackdropAtlas from './resources/backdrop.json';
+/*import BackdropAtlas from './resources/backdrop.json';*/
 
 class PixiBackdrop extends Component {
   constructor(){
