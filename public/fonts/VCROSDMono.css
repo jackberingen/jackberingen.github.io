@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'VCR OSD Mono';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100;
     src: url('VCRODSMono.eot'); /* IE9 Compat Modes */
     src: local('VCR OSD Mono'), local('VCROSDMono'),
          url('VCRODSMono.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */

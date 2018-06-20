@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Stage } from 'react-pixi-fiber';
 import { PixiBackdrop, PixiLoadText, PixiFilters } from "./pixi";
-import "./PixiApp.css";
 import PixiText from './pixi/PixiText';
+import "./PixiApp.css";
 
 class PixiApp extends Component {
 
