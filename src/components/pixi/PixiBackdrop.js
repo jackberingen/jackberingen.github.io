@@ -1,39 +1,57 @@
 import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Sprite } from "react-pixi-fiber";
-import background from "./resources/backdrop2.png";
-/*import BackdropAtlas from './resources/backdrop.json';*/
 
 class PixiBackdrop extends Component {
   constructor(){
     super();
+
+    this.mainRef = React.createRef();
+    this.backLoaded = false;
     this.state = {
+      alpha: 0
+    }
+    this.anim = {
       tex: 0,
-      ticker: setInterval(()=>{
-        let _tex = this.state.tex;
-        _tex++;
-        if (_tex > 47){ _tex = 0 }
-        this.setState({tex: _tex})
-      }, 400)   
+      ticker: null 
     }
 
-    /*PIXI.loader.add(['./resources/backdrop.json']).load();
-    PIXI.loader.on('complete', (loader, res)=>{
-      console.log(PIXI.loader.resources);
-    })*/
+    this.draw = ()=>{
+      this.setState({ alpha: this.state.alpha + 0.05 });
+      if(this.state.alpha === 1.0){
+        this.setState({ alpha: 1 });
+      }else{ requestAnimationFrame(this.draw) }
+    }
+
+    for(var i = 0; i < 14; i++){
+      PIXI.loader.add(process.env.PUBLIC_URL + `/backdrop/back-${i}.min.json`);
+    }
+
+    PIXI.loader.load();
+    PIXI.loader.once('complete', ()=>{ 
+      this.backLoaded = true; 
+      requestAnimationFrame(this.draw)
+    })
   }
 
-  componentWillMount(){
+  componentDidMount(){
+    this.setState({ticker: setInterval(()=>{
+      this.anim.tex++;
+
+      if(this.anim.tex > 41){this.anim.tex = 0}
+      if(this.backLoaded){
+        this.mainRef.current._texture = PIXI.Texture.fromFrame(`${this.anim.tex}.png`);
+      }
+    }, 80)  });
   }
 
   componentWillUnmount(){
-    clearInterval(this.state.ticker);
+    clearInterval(this.anim.ticker);
   }
 
   render() {
-    //texture={this.props.sheet[`${this.state.tex}.png`]}
     return(
-      <Sprite {...this.props} texture={PIXI.Texture.fromImage(background)} />
+      <Sprite ref={this.mainRef} alpha={this.state.alpha} {...this.props} />
     );
   }
 }

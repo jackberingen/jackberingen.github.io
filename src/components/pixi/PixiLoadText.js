@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
-import { Text } from 'react-pixi-fiber';
+import PixiText from './PixiText';
 
 class PixiLoadText extends Component {
 
   constructor(){
     super();
 
-    this.style = new PIXI.TextStyle({
-      fontFamily: 'VCR OSD Mono',
-      fontSize: 48,
-      fill: '#ffffff',
-      
+    this.state = {
+      progress: 0,
+      alpha: 1
+    }
+  }
+
+  componentDidMount(){
+    PIXI.loader.on('progress', (load, res)=>{
+      this.setState({ progress: Math.round(load.progress) });
+      if(this.state.progress === 100){ this.setState({ alpha: 0 }); }
     });
   }
 
   render() {
     return(
-        <Text {...this.props} anchor={{x: 0.5, y: 0.5}} style={this.style}/>
+        <PixiText {...this.props} text={this.state.progress + '%'} alpha={this.state.alpha}/>
     );
   }
 }

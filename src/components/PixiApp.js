@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Stage } from 'react-pixi-fiber';
 import { PixiBackdrop, PixiLoadText, PixiFilters } from "./pixi";
-import BackdropAtlas from './pixi/resources/backdrop.json';
 import "./PixiApp.css";
+import PixiText from './pixi/PixiText';
 
 class PixiApp extends Component {
 
   constructor() {
     super();
-    this.stageRef = React.createRef();
     this.state = {
       width:  window.innerWidth,
       width_back: 0,
@@ -66,12 +65,6 @@ class PixiApp extends Component {
   componentDidMount() {
     this.dimensions();
     window.addEventListener("resize", this.dimensions);
-
-    PIXI.loader.add('backdrop.json').load();
-    PIXI.loader.once('complete', ()=>{
-      console.log(PIXI.loader.resources);
-    })
-    //console.log(this.stageRef.current)
   }
   
   componentWillUnmount() {
@@ -80,7 +73,7 @@ class PixiApp extends Component {
 
   render() {
     return(
-      <Stage ref={this.stageRef} className="pixi-app" width={this.state.width} height={this.state.height}>
+      <Stage className="pixi-app" width={this.state.width} height={this.state.height}>
         <PixiBackdrop 
           anchor={{x: 0.5, y: 0.5}} 
           x={this.state.width / 2} 
@@ -89,6 +82,7 @@ class PixiApp extends Component {
           height={this.state.height_back}
           filters={this.filters}/>
         <PixiLoadText text={PIXI.loader.progress} x={this.state.width / 2} y={this.state.height /2}/>
+        <PixiText text="TESTING" x={this.state.width / 2} y={this.state.height /2}/>
       </Stage>
     );
   }
