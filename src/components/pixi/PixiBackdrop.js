@@ -9,16 +9,15 @@ class PixiBackdrop extends Component {
     this.mainRef = React.createRef();
     this.backLoaded = false;
     this.state = {
-      alpha: 0
-    }
-    this.anim = {
+      textures: [],
+      alpha: 0,
       tex: 0,
-      ticker: null 
+      ticker: null
     }
 
     this.draw = ()=>{
       this.setState({ alpha: this.state.alpha + 0.05 });
-      if(this.state.alpha === 1.0){
+      if(this.state.alpha > 1.0){
         this.setState({ alpha: 1 });
       }else{ requestAnimationFrame(this.draw) }
     }
@@ -29,6 +28,12 @@ class PixiBackdrop extends Component {
 
     PIXI.loader.load();
     PIXI.loader.once('complete', ()=>{ 
+      var _textures = [];
+      for(var i = 0; i < 42; i++){
+        _textures.push(PIXI.Texture.fromFrame(`${i}.png`));
+      }
+
+      this.setState({ textures: _textures });
       this.backLoaded = true; 
       requestAnimationFrame(this.draw)
     })
@@ -36,17 +41,19 @@ class PixiBackdrop extends Component {
 
   componentDidMount(){
     this.setState({ticker: setInterval(()=>{
-      this.anim.tex++;
+      this.setState({ tex: this.state.tex + 1 });
 
-      if(this.anim.tex > 41){this.anim.tex = 0}
+      if(this.state.tex > 41){ this.setState({ tex: 0 }) }
       if(this.backLoaded){
-        this.mainRef.current._texture = PIXI.Texture.fromFrame(`${this.anim.tex}.png`);
+        this.mainRef.current._texture = this.state.textures[this.state.tex];
+        this.mainRef.current.width = this.props.width;
+        this.mainRef.current.height = this.props.height;
       }
     }, 80)  });
   }
 
   componentWillUnmount(){
-    clearInterval(this.anim.ticker);
+    clearInterval(this.state.ticker);
   }
 
   render() {

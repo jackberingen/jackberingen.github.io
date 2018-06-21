@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Stage } from 'react-pixi-fiber';
 import { PixiBackdrop, PixiLoadText, PixiFilters } from "./pixi";
-import PixiText from './pixi/PixiText';
+//import PixiText from './pixi/PixiText';
 import "./PixiApp.css";
 
 class PixiApp extends Component {
@@ -31,7 +31,6 @@ class PixiApp extends Component {
     }
 
     this.animate();
-    //lit
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
   }
 
@@ -51,7 +50,8 @@ class PixiApp extends Component {
         height_back: 0
     };
 
-    if((window.innerWidth - 400) > window.innerHeight){
+    console.log(`${window.innerWidth}||${window.innerHeight}`);
+    if((window.innerWidth * backdrop_ratio.y) > window.innerHeight){
         _state.width_back = window.innerWidth;
         _state.height_back = window.innerWidth * backdrop_ratio.y;
     }else{
@@ -82,7 +82,6 @@ class PixiApp extends Component {
           height={this.state.height_back}
           filters={this.filters}/>
         <PixiLoadText text={PIXI.loader.progress} x={this.state.width / 2} y={this.state.height /2}/>
-        <PixiText text="TESTING" x={this.state.width / 2} y={this.state.height /2}/>
       </Stage>
     );
   }

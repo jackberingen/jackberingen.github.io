@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <PixiApp />
-        <span className="testing" >TESTING</span>
+        <span className="name">JACK BRINKMAN</span>
       </div>
     );
   }
