@@ -50,7 +50,6 @@ class PixiApp extends Component {
         height_back: 0
     };
 
-    console.log(`${window.innerWidth}||${window.innerHeight}`);
     if((window.innerWidth * backdrop_ratio.y) > window.innerHeight){
         _state.width_back = window.innerWidth;
         _state.height_back = window.innerWidth * backdrop_ratio.y;
@@ -81,7 +80,7 @@ class PixiApp extends Component {
           width={this.state.width_back}
           height={this.state.height_back}
           filters={this.filters}/>
-        <PixiLoadText text={PIXI.loader.progress} x={this.state.width / 2} y={this.state.height /2}/>
+        <PixiLoadText text={PIXI.loader.progress} x={this.state.width / 2} y={this.state.height - 30}/>
       </Stage>
     );
   }

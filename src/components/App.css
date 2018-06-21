@@ -1,6 +1,31 @@
-.name{
-    font-family: 'VCR OSD Mono';
-    font-size: 5em;
-    color: white;
-    z-index: 1;
+.Main
+{
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.Main .Name{
+  font-family: 'VCR OSD Mono';
+  font-size: 45px;
+  color: white;
+}
+
+.Main .Small{
+  font-family: 'VCR OSD Mono';
+  font-size: 25px;
+  color: rgb(212, 212, 212);
+}
+
+@media only screen and (max-device-width: 480px) {
+  .Main .Name{
+    font-size: 35px;
+  }
+  .Main .Small{
+    font-size: 15px;
+  }
 }

@@ -9,7 +9,7 @@ class PixiText extends Component {
 
     this.style = new PIXI.TextStyle({
       fontFamily: 'VCR OSD Mono',
-      fontSize: 48,
+      fontSize: 24,
       fill: '#ffffff',
     });
   }
