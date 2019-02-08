@@ -18,7 +18,9 @@ let render = ()=>{
   registerServiceWorker();
 }
 
-//Check if we're running locally. If we are, render the page.
+render();
+
+/*//Check if we're running locally. If we are, render the page.
 if(location === "http://localhost:3000"){
   render();
 }else{
@@ -30,4 +32,4 @@ if(location === "http://localhost:3000"){
     //If we're not running locally but we're on the correct url, render the page.
     render();
   }
-}
+}*/
