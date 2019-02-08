@@ -1,0 +1,153 @@
+.Portfolio{
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 10%;
+  bottom: 10%;
+}
+
+.Portfolio .Scroll{
+  position: absolute;
+  overflow-y: scroll;
+  top: 45px;
+  bottom: 0;
+  left: -1rem;
+  right: -1rem;
+}
+
+.Portfolio span{
+  color: rgb(214, 214, 214);
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+}
+
+.Portfolio-Back::after{
+  content: "";
+  border-radius: 7px;
+  opacity: 0.35;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  background-size: cover;
+  transition: opacity 200ms ease-in-out, border-radius 200ms ease-in-out;
+}
+
+.Portfolio-Back:hover::after{
+  border-radius: 15px;
+  opacity: 0.6;
+}
+
+.Scroll ul {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0;
+}
+.Scroll ul li {
+  display: flex;
+  width: calc(100% / 4 - 2rem);
+  min-height: 200px;
+  margin: 1rem;
+}
+
+.Scroll ul li div {
+  transform-style: preserve-3d;
+  display: flex;
+  flex: 1;
+}
+
+.Scroll ul li a {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transform: translateZ(30px);
+  font-family: 'VT323', monospace;
+  font-size: 25px;
+  transition: opacity 150ms ease-out;
+  opacity: 0.6;
+}
+.Scroll ul li a:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .Portfolio{
+    top: 10%;
+  }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+  .Portfolio{
+    bottom: 20%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Portfolio{
+    left: 10%;
+    right: 10%;
+    bottom: 15%;
+  }
+  .Portfolio ul li {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1140px) {
+  .Portfolio ul li {
+    width: calc(100% / 3 - 2rem);
+  }
+}
+
+.bombcorp::after{
+  background-image: url(./portfolio/bombcorp.png);
+}
+
+.pinger::after{
+  background-image: url(./portfolio/pinger.png);
+}
+
+.audiovis::after{
+  background-image: url(./portfolio/audiovis.png);
+}
+
+.audiovis2::after{
+  background-image: url(./portfolio/audiovis2.png);
+}
+
+.chrome-emoji::after{
+  background-image: url(./portfolio/chrome-emoji.png);
+}
+
+.gtav-ragdoll::after{
+  background-image: url(./portfolio/gtav-ragdoll.png);
+}
+
+.ue4-idlescreen::after{
+  background-image: url(./portfolio/ue4-idlescreen.png);
+}
+
+.ue4-ytapi::after{
+  background-image: url(./portfolio/ue4-ytapi.png);
+}
+
+.ue4-money::after{
+  background-image: url(./portfolio/ue4-money.png);
+}
+
+.ue4-notify::after{
+  background-image: url(./portfolio/ue4-notify.png);
+}

@@ -1,0 +1,65 @@
+.About {
+  position: fixed;
+  left: 5%;
+  right: 5%;
+  top: 10%;
+  bottom: 10%;
+}
+
+.About .Scroll{
+  position: absolute;
+  overflow-y: scroll;
+  top: 45px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.Scroll span{
+  color: white;
+  opacity: 0.80;
+  font-family: 'VT323', monospace;
+  font-size: 25px;
+}
+
+.Scroll h4{
+  color: white;
+  font-family: 'VT323', monospace;
+  font-size: 28px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.Scroll .Second{
+  text-align: left;
+  margin-top: 25px;
+}
+
+.Scroll .Third{
+  text-align: left;
+  margin-top: 25px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .About{
+    left: 10%;
+    right: 10%;
+    bottom: 15%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .About span{
+    font-size: 20px;
+  }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+  .About{
+    bottom: 20%;
+  }
+}

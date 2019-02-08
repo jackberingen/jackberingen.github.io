@@ -1,0 +1,22 @@
+.Fallback h1{
+  color: rgb(180, 180, 180);
+  font-family: 'VCR OSD Mono';
+  font-size: 65px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.Fallback h3{
+  color: white;
+  font-family: 'VCR OSD Mono';
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.Fallback{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
