@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "http://jackberingen.github.io/",
   "dependencies": {
+    "@pixi/filter-ascii": "^2.7.0",
     "@pixi/filter-crt": "^2.7.0",
+    "@pixi/filter-glitch": "^2.7.0",
     "animated": "^0.2.2",
     "pixi.js": "^4.8.5",
     "react": "^16.7.0",
