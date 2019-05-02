@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 
 //Get the window location. Even if it is at the base directory, it will still include a '/' at the end of the url.
-let href = window.location.href;
+//let href = window.location.href;
 
 //Get the base url without any forward-slashes (just in case the user was trying to navigate to other parts of the website via the .github.io url).
 //E.G. https://jackberingen.github.io/portfolio-> https://jackberingen.github.io
-let location = href.substring(0, href.indexOf('/', 8));
+//let location = href.substring(0, href.indexOf('/', 8));
 
 //Define a render function so we don't have to run the same code twice.
 let render = ()=>{
