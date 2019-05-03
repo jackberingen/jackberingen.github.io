@@ -41,7 +41,7 @@ class Title extends Component {
             <Link to="/about">ABOUT </Link>
             <Link to="/portfolio"> PORTFOLIO</Link>
             {/*<Link to="/tools"> TOOLS </Link>*/}<br/>
-            <a href="https://github.com/jackberingen"><img style={{paddingTop: '18px'}} alt="Link to GitHub" src={git}></img></a>
+            <a href="https://github.com/jackberingen"><img style={{paddingTop: '18px', width: '50px', height: '50px'}} alt="Link to GitHub" src={git}></img></a>
             
           </div>
         </div>
