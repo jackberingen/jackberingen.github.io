@@ -1,4 +1,4 @@
-# jackberingen - Website / Portfolio
+# Jack Beringen - Website / Portfolio
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/df780d62-f059-4d70-940f-90a1cded7d9c/deploy-status)](https://app.netlify.com/sites/jackberingen/deploys)
 
