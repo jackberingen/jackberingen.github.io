@@ -20,7 +20,7 @@ class Title extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (Math.round(PIXI.Loader.shared.progress) === 100) {
       this.setState({ class: 'Main anim in' });
     } else {

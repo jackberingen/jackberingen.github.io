@@ -5,7 +5,6 @@ const TYPE = 'AnimatedSprite';
 export const behavior = {
   customDisplayObject: ({ textures }) => {
     const sprite = new PIXI.AnimatedSprite(textures);
-    sprite.animationSpeed = 50;
     sprite.play();
     return sprite;
   },

@@ -5,19 +5,17 @@ import AnimatedSprite from './PixiAnimatedSprite';
 class PixiBackdrop extends Component {
   constructor() {
     super();
-
-    this.mainRef = React.createRef();
     this.state = {
       textures: null,
     };
 
-    for(var i = 0; i < 14; i++) {
-      PIXI.Loader.shared.add(process.env.PUBLIC_URL + `/backdrop/back-${i}.min.json`);
+    for (let i = 0; i < 14; i += 1) {
+      PIXI.Loader.shared.add(`${process.env.PUBLIC_URL}/backdrop/back-${i}.min.json`);
     }
 
     PIXI.Loader.shared.load(() => {
       const textures = [];
-      for (let i = 0; i < 42; i++){
+      for (let i = 0; i < 42; i += 1) {
         textures.push(PIXI.Texture.from(`${i}.png`));
       }
 

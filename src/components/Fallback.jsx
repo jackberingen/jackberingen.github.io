@@ -7,25 +7,26 @@ class Fallback extends Component {
   constructor() {
     super();
     this.state = {
-      class: 'anim',
+      visible: 'anim',
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (Math.round(PIXI.Loader.shared.progress) === 100) {
-      this.setState({ class: 'anim in' });
+      this.setState({ visible: 'anim in' });
     } else {
       PIXI.Loader.shared.onComplete.once(() => {
-        this.setState({ class: 'anim in' });
+        this.setState({ visible: 'anim in' });
       });
     }
   }
 
   render() {
     const { location } = this.props;
+    const { visible } = this.state;
 
     return (
-      <div className={this.state.class}>
+      <div className={visible}>
         <Back />
         <div className="Fallback">
           <h1>404</h1>
