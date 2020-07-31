@@ -5,28 +5,28 @@ import git from './portfolio/git.png';
 import './Title.css';
 
 class Title extends Component {
-  constructor(){
+  constructor() {
     super();
     this.devs = [
-      "CAN USE STACKOVERFLOW",
-      "TYPES CODE AND STUFF",
-      "DOES SOFTWARE STUFF",
-      "JUST A SUPER COOL GUY"
+      'CAN USE STACKOVERFLOW',
+      'TYPES CODE AND STUFF',
+      'DOES SOFTWARE STUFF',
+      'JUST A SUPER COOL GUY',
     ];
     this.state = {
-      class: "Main anim",
-      name: "<JACK BERINGEN/>", 
-      dev:`// ${this.devs[Math.floor(Math.random() * this.devs.length)]} //`
-    }
+      class: 'Main anim',
+      name: '<JACK BERINGEN/>',
+      dev: `// ${this.devs[Math.floor(Math.random() * this.devs.length)]} //`,
+    };
   }
 
-  componentWillMount(){
-    if(Math.round(PIXI.loader.progress) === 100){
-      this.setState({ class: "Main anim in" });
-    }else{
-      PIXI.loader.once('complete', ()=>{
-        this.setState({ class: "Main anim in" });
-      })
+  componentWillMount() {
+    if (Math.round(PIXI.Loader.shared.progress) === 100) {
+      this.setState({ class: 'Main anim in' });
+    } else {
+      PIXI.Loader.shared.onComplete.once(() => {
+        this.setState({ class: 'Main anim in' });
+      });
     }
   }
 
@@ -40,9 +40,10 @@ class Title extends Component {
           <div className="Routes No-Select">
             <Link to="/about">ABOUT </Link>
             <Link to="/portfolio"> PORTFOLIO</Link>
-            {/*<Link to="/tools"> TOOLS </Link>*/}<br/>
-            <a href="https://github.com/jrinkman"><img style={{paddingTop: '18px', width: '50px', height: '50px'}} alt="Link to GitHub" src={git}></img></a>
-            
+            {/* <Link to="/tools"> TOOLS </Link> */}
+            <br />
+            <a href="https://github.com/jrinkman"><img style={{ paddingTop: '18px', width: '50px', height: '50px' }} alt="Link to GitHub" src={git} /></a>
+
           </div>
         </div>
         <a className="Credit" href="https://www.deviantart.com/kirokaze/art/Blue-Balcony-572754071">GIF by @kirokaze</a>
