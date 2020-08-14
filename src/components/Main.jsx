@@ -5,9 +5,8 @@ import AnimatedSwitch from './AnimatedSwitch';
 
 import About from './About';
 import Title from './Title';
-import Portfolio from './Portfolio';
+import Portfolio from './Portfolio.tsx';
 import Fallback from './Fallback';
-import projects from './PortfolioData';
 
 import './Main.css';
 
@@ -22,9 +21,7 @@ function Main() {
             <Route
               exact
               path="/portfolio"
-              render={() => (
-                <Portfolio projects={projects} />
-              )}
+              component={Portfolio}
             />
             <Route component={Fallback} />
           </AnimatedSwitch>

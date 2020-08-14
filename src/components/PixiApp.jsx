@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
 import { Stage } from 'react-pixi-fiber';
 import { PixiBackdrop, PixiLoadText, PixiFilters } from './pixi';
-// import PixiText from './pixi/PixiText';
 import './PixiApp.css';
 
 class PixiApp extends Component {
@@ -80,7 +79,7 @@ class PixiApp extends Component {
           height={heightBack}
           filters={this.filters}
         />
-        <PixiLoadText text={PIXI.Loader.shared.progress} x={width / 2} y={height / 2} />
+        <PixiLoadText text="test" x={width / 2} y={height / 2} />
       </Stage>
     );
   }

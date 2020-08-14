@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
-import PixiText from './PixiText';
+import { Text } from 'react-pixi-fiber';
 
 class PixiLoadText extends Component {
   constructor() {
@@ -9,6 +9,12 @@ class PixiLoadText extends Component {
     this.state = {
       progress: 0,
     };
+
+    this.style = new PIXI.TextStyle({
+      fontFamily: 'VCR OSD Mono',
+      fontSize: 24,
+      fill: '#ffffff',
+    });
   }
 
   componentDidMount() {
@@ -20,7 +26,16 @@ class PixiLoadText extends Component {
 
   render() {
     const { progress } = this.state;
-    return progress < 100 && <PixiText text={`${progress}%`} />;
+
+    return progress < 100 && (
+      <Text
+        style={this.style}
+        anchor={{ x: 0.5, y: 0.5 }}
+        x={window.innerWidth / 2}
+        y={window.innerHeight / 2}
+        text={`${progress}%`}
+      />
+    );
   }
 }
 

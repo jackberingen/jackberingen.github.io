@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import * as PIXI from 'pixi.js';
-import AnimatedSprite from './PixiAnimatedSprite';
+import { Sprite } from 'react-pixi-fiber';
 
 class PixiBackdrop extends Component {
   constructor() {
     super();
     this.state = {
       textures: null,
+      tex: 0,
     };
 
     for (let i = 0; i < 14; i += 1) {
@@ -19,14 +20,20 @@ class PixiBackdrop extends Component {
         textures.push(PIXI.Texture.from(`${i}.png`));
       }
 
-      this.setState({ textures });
+      this.setState({ textures }, () => {
+        this.anim = setInterval(() => {
+          const { tex } = this.state;
+          this.setState({ tex: tex === textures.length - 1 ? 0 : tex + 1 });
+        }, 80);
+      });
     });
   }
 
   render() {
-    const { textures } = this.state;
+    const { textures, tex } = this.state;
     const { width, height } = this.props;
-    return textures && <AnimatedSprite textures={textures} width={width} height={height} />;
+    return textures
+      && <Sprite texture={textures[tex] || null} width={width} height={height} />;
   }
 }
 

@@ -8,23 +8,24 @@ class About extends Component {
   constructor() {
     super();
     this.state = {
-      class: 'anim',
+      anim: 'anim',
     };
   }
 
   componentDidMount() {
     if (Math.round(PIXI.Loader.shared.progress) === 100) {
-      this.setState({ class: 'anim in' });
+      this.setState({ anim: 'anim in' });
     } else {
       PIXI.Loader.shared.onComplete.once(() => {
-        this.setState({ class: 'anim in' });
+        this.setState({ anim: 'anim in' });
       });
     }
   }
 
   render() {
+    const { anim } = this.state;
     return (
-      <div className={this.state.class}>
+      <div className={anim}>
         <Back />
         <div className="About">
           <h1 className="Page-Head">ABOUT</h1>

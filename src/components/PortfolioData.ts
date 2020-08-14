@@ -1,14 +1,21 @@
-export default [
+interface Project {
+  title: string,
+  desc: string,
+  link: string,
+  img: string
+}
+
+const projects: Array<Project> = [
   {
     title: 'BOMBCORP',
     desc: 'A browser-based minigame written using pixi.js',
-    link: 'https://arthur-showcase.firebaseapp.com/bombcorp/',
+    link: 'https://github.com/jrinkman/bombcorp',
     img: 'bombcorp',
   },
   {
     title: 'Pinger',
     desc: "A ping monitoring tool i've written using WPF and MahApps.metro",
-    link: 'https://github.com/jackberingen/pinger',
+    link: 'https://github.com/jrinkman/pinger',
     img: 'pinger',
   },
   {
@@ -60,3 +67,5 @@ export default [
     img: 'ue4-notify',
   },
 ];
+
+export default projects;
