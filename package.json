@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://jrinkman.com",
   "dependencies": {
+    "@types/react": "^16.9.44",
+    "@types/react-transition-group": "^4.4.0",
     "@pixi/filter-ascii": "^3.1.1",
     "@pixi/filter-crt": "^3.1.1",
     "@pixi/filter-glitch": "^3.1.1",
@@ -25,8 +27,6 @@
     "lint-init": "eslint --init"
   },
   "devDependencies": {
-    "@types/react": "^16.9.44",
-    "@types/react-transition-group": "^4.4.0",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "eslint-config-airbnb": "^18.2.0",
