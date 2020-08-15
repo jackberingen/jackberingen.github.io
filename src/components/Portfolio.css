@@ -1,18 +1,20 @@
-.Portfolio{
+.Portfolio {
+  display: flex;
   position: fixed;
+  flex-direction: column;
   left: 5%;
   right: 5%;
   top: 10%;
   bottom: 10%;
 }
 
-.Portfolio .Scroll{
-  position: absolute;
+.Portfolio .Scroll {
+  flex-grow: 1;
   overflow-y: scroll;
   top: 45px;
   bottom: 0;
-  left: -1rem;
-  right: -1rem;
+  margin-left: -1em;
+  margin-right: -1em;
 }
 
 .Portfolio span{
@@ -47,11 +49,12 @@
   padding: 0 0 0 0;
   margin: 0;
 }
+
 .Scroll ul li {
   display: flex;
   width: calc(100% / 4 - 2rem);
   min-height: 200px;
-  margin: 1rem;
+  margin: 1em;
 }
 
 .Scroll ul li div {
@@ -150,4 +153,8 @@
 
 .ue4-notify::after{
   background-image: url(./portfolio/ue4-notify.png);
+}
+
+.bubblevis::after{
+  background-image: url(./portfolio/bubblevis.png);
 }
